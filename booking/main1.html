@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://formstone.it/demo/js/modernizr.js?v=1.4.21"></script>
+    <link rel="stylesheet" href="https://formstone.it/demo/css/site.css?v=1.4.21">
+    <script src="https://formstone.it/demo/js/site.js?v=1.4.21"></script>
     <title>成果行銷 | 預約會議室</title>
     <style>
         body {
@@ -223,22 +227,22 @@
         .booking_aside {
             border: 1px solid rgb(235, 233, 233);
             border-radius: 10px;
-            padding: 10px;
+            padding: 20px 15px;
             position: fixed;
             background-color: #FFFFFF;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
         .booking_btn {
-            width: 150px;
-            height: 30px;
+            width: 180px;
+            height: 40px;
             background: #0d6efd;
             border-radius: 5px;
             border: 0px;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             font-weight: 600;
-            font-size: 12px;
-            line-height: 24px;
+            font-size: 16px;
+            line-height: 40px;
             color: #FFFFFF;
             margin-top: 20px;
             cursor: pointer;
@@ -252,6 +256,49 @@
         .table_main {
             /* border: 1px solid blue; */
             width: 80%;
+        }
+
+        /* =================== 更改select 套用後須留存 ======================*/
+        .booking_room {
+            display: flex;
+            padding: 3px;
+        }
+
+        .booking_title {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .fs-dropdown {
+            max-width: 100%;
+            width: 115px;
+        }
+
+        .fs-dropdown.fs-light .fs-dropdown-selected {
+            border-radius: 7px;
+        }
+
+        .no-touchevents .fs-dropdown.fs-light .fs-dropdown-item:hover {
+            background-color: #8dc8ff;
+        }
+
+        .fs-light.fs-dropdown-open .fs-dropdown-options {
+            border-radius: 0px 0px 7px 7px;
+        }
+
+        .fs-dropdown.fs-light .fs-dropdown-item_selected,
+        .no-touchevents .fs-dropdown.fs-light .fs-dropdown-item_selected:hover {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+
+        .fs-dropdown.fs-light.fs-dropdown-focus .fs-dropdown-selected,
+        .no-touchevents .fs-dropdown.fs-light .fs-dropdown-selected:hover {
+            background-color: #8dc8ff;
+        }
+
+        .booking_date .fs-dropdown {
+            width: 131px;
         }
     </style>
 </head>
@@ -269,57 +316,74 @@
                 <div class="content-wrap content_all">
                     <div class="container-fluid px-5 clearfix content_wrap_all">
                         <div class="booking_aside">
-                            會議室：<select name="room">
-                                <option>紐約</option>
-                                <option>倫敦</option>
-                                <option>深圳</option>
-                                <option>日本</option>
-                                <option>挪威</option>
-                                <option>上海</option>
-                            </select><br>
-                            預約人：<select name="org">
-                                <option value="1">追聚行銷</option>
-                                <option value="2">法律顧問 </option>
-                            </select><br>
-                            日期：<select name="day">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select><br>
-                            開始：<input name="starttime" type="text" size="10" placeholder="ex:10:00"><br>
-                            結束：<input name="endtime" type="text" size="10" placeholder="ex:10:30"><br>
+                            <div class="booking_room">
+                                <div class="booking_title">會議室：</div>
+                                <select name="room" class="dropdown">
+                                    <option>紐約</option>
+                                    <option>倫敦</option>
+                                    <option>深圳</option>
+                                    <option>日本</option>
+                                    <option>挪威</option>
+                                    <option>上海</option>
+                                </select>
+                            </div>
+                            <div class="booking_room">
+                                <div class="booking_title">預約人：</div>
+                                <select name="org" class="dropdown1">
+                                    <option value="1">追聚行銷</option>
+                                    <option value="2">法律顧問 </option>
+                                </select>
+                            </div>
+                            <div class="booking_room booking_date">
+                                <div class="booking_title">日期：</div>
+                                <select name="day" class="dropdown2">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="booking_room">
+                                <div class="booking_title">開始：</div>
+                                <input name="starttime" type="text" size="10" placeholder=" ex:10:00"
+                                    style="border:1px solid;border-radius: 7px; width: 131px;">
+                            </div>
+                            <div class="booking_room">
+                                <div class="booking_title">結束：</div>
+                                <input name="endtime" type="text" size="10" placeholder=" ex:10:30"
+                                    style="border:1px solid;border-radius: 7px; width: 131px;">
+                            </div>
                             <button onclick="checkbooking();" class="booking_btn">BOOKING</button><img
                                 src="v2/images/loading.gif" id="imgloading1" style="width:30px; display:none;">
                         </div>
-                        <div style="width: 200px;"></div>
+                        <div style="width: 260px;"></div>
                         <table class="table text-center fs-2 table_main">
                             <thead>
                                 <tr class="">
@@ -1029,7 +1093,15 @@
         </div>
     </div>
     <script>
-
+        $(".dropdown").dropdown({
+            label: "紐約"
+        });
+        $(".dropdown1").dropdown({
+            label: "追劇行銷"
+        });
+        $(".dropdown2").dropdown({
+            label: "1"
+        });
     </script>
 </body>
 
