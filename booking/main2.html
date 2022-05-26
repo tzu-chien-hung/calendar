@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>成果行銷 | 預約會議室</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #555;
+        }
+
+        .login_main {
+            margin: 0 auto;
+        }
+
+        .login_header {
+            width: 100%;
+            height: 100px;
+            background: #fff;
+            /* box-shadow: 0 0 10px rgb(0 0 0 / 20%); */
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+        }
+
+        .login_header_title {
+            height: 100px;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 100px;
+            color: #888;
+            margin-left: 50px;
+            display: flex;
+        }
+
+        .login_header_logout {
+            height: 100px;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 100px;
+            color: #888;
+            margin-right: 50px;
+            cursor: pointer;
+        }
+
+        .login_header_logout:hover {
+            color: #0d6efd;
+        }
+        .login_form_logo {
+            width: 100px;
+            height: 102px;
+            line-height: 130px;
+            margin-right: 30px;
+        }
+
+        .login_form_logo img {
+            width: 100%;
+        }
+        /*  ==========================  footer   ==========================  */
+        .login_footer {
+            position: relative;
+        }
+
+        .login_footer_line1 {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 75px;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .login_footer_line2 {
+            position: absolute;
+            width: 100%;
+            height: 15px;
+            bottom: 60px;
+            background: #282828;
+        }
+
+        .login_footer_txt {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background: #000000;
+        }
+
+        /* =================== 行事曆的css 套用後可刪除 ======================*/
+        .list-group {
+            list-style: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            border-radius: 0.25rem;
+        }
+
+        .list-group-item {
+            padding: 0.5rem 1rem;
+        }
+
+        .room0 {
+            background: #9fc5e8;
+            color: black;
+        }
+
+        .room1 {
+            background: #b4a7d7;
+            color: black;
+        }
+
+        .room3 {
+            background: #c4a4a4;
+            color: black;
+        }
+
+        .room5 {
+            background: #df6eb5;
+            color: black;
+        }
+
+        .list-group-item:last-child {
+            border-bottom-right-radius: inherit;
+            border-bottom-left-radius: inherit;
+        }
+
+        .list-group-item:first-child {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+
+        .align-items-center {
+            font-size: 32px;
+        }
+
+        thead {
+            border-bottom: 1px solid black;
+        }
+
+        th {
+            font-size: 32px;
+            padding: .5rem;
+        }
+
+        .table> :not(caption)>*>* {
+            padding: 0.5rem 0.5rem;
+            background-color: var(--bs-table-bg);
+            border-bottom-width: 1px;
+            vertical-align: text-top;
+            /* box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg); */
+        }
+
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            border-color: rgb(219, 217, 217);
+            border-style: solid;
+            border-width: 0;
+        }
+        thead th{
+            border-color: black;
+        }
+        th {
+            text-align: inherit;
+        }
+
+        th {
+            display: table-cell;
+            vertical-align: inherit;
+            font-weight: bold;
+            text-align: -internal-center;
+        }
+
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .fs-2 {
+            /* font-size: 20px!important; */
+        }
+
+        /* .table {
+            --bs-table-bg: transparent;
+            --bs-table-accent-bg: transparent;
+            --bs-table-striped-color: #212529;
+            --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+            --bs-table-active-color: #212529;
+            --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+            --bs-table-hover-color: #212529;
+            --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            vertical-align: top;
+            border-color: #dee2e6;
+        } */
+
+        table {
+            caption-side: bottom;
+            border-collapse: collapse;
+        }
+
+        user agent stylesheet table {
+            border-collapse: separate;
+            text-indent: initial;
+            border-spacing: 2px;
+        }
+
+        /* =================== 其他新增的css 套用後須留存 ======================*/
+        .content_all {
+            /* border: 1px solid red; */
+            margin: 150px auto 130px;
+            width: 95%;
+        }
+
+        .content_wrap_all {
+            display: flex;
+            /* border: 1px solid black; */
+            margin: 0px auto;
+        }
+
+        .booking_aside {
+            /* border: 1px solid rgb(235, 233, 233); */
+            border-radius: 10px;
+            padding: 10px;
+            position: fixed;
+            background-color: #FFFFFF;
+            /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
+        }
+
+        .booking_btn {
+            width: 140px;
+            height: 30px;
+            background: #0d6efd;
+            border-radius: 5px;
+            border: 0px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 24px;
+            color: #FFFFFF;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .booking_btn:hover {
+            filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+            background: #0121ED;
+        }
+
+        .table_main {
+            /* border: 1px solid blue; */
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="login_main">
+            <div class="login_header_relative">
+                <div class="login_header">
+                    <div class="login_header_title">
+                        <div class="login_form_logo">
+                            <img src="../img/logo1.png" alt="">
+                        </div>成果行銷 | 預約會議室</div>
+                    <div class="login_header_logout">登出</div>
+                </div>
+            </div>
+            <section id="content" class="content">
+                <div class="content-wrap content_all">
+                    <div class="container-fluid px-5 clearfix content_wrap_all">
+                        <div class="booking_aside">
+                            會議室：<select name="room">
+                                <option>紐約</option>
+                                <option>倫敦</option>
+                                <option>深圳</option>
+                                <option>日本</option>
+                                <option>挪威</option>
+                                <option>上海</option>
+                            </select><br>
+                            預約人：<select name="org">
+                                <option value="1">追聚行銷</option>
+                                <option value="2">法律顧問 </option>
+                            </select><br>
+                            日期：<select name="day">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select><br>
+                            開始：<input name="starttime" type="text" size="10" placeholder="ex:10:00"><br>
+                            結束：<input name="endtime" type="text" size="10" placeholder="ex:10:30"><br>
+                            <button onclick="checkbooking();" class="booking_btn">BOOKING</button><img
+                                src="v2/images/loading.gif" id="imgloading1" style="width:30px; display:none;">
+                        </div>
+                        <div style="width: 180px;margin-right: 20px;border-right: 1px solid rgb(0 0 0 / 25%);"></div>
+                        <table class="table text-center fs-2 table_main">
+                            <thead>
+                                <tr class="">
+                                    <th><a href="?m=04&amp;y=2022">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#888"
+                                                class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                                            </svg>
+                                        </a></th>
+                                    <th colspan="5">
+                                        <div class="align-items-center">2022-05</div>
+                                    </th>
+                                    <th><a href="?m=06&amp;y=2022">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#888"
+                                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                                            </svg>
+                                        </a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>日</th>
+                                    <th>ㄧ</th>
+                                    <th>二</th>
+                                    <th>三</th>
+                                    <th>四</th>
+                                    <th>五</th>
+                                    <th>六</th>
+                                </tr>
+                                <tr>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">1</div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">2</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room1">
+                                                <div class="fs-6">
+
+                                                    <div>倫敦</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:justine@sfrontier.biz ">
+                                                        14:15~14:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">3</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:00~18:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:30~18:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">4</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Peter Chen ">
+                                                        14:00~16:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">5</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:judy@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">6</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:johnny@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:serene@sfrontier.biz ">
+                                                        10:30~11:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:brian@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">7</div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">8</div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">9</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:00~18:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room3">
+                                                <div class="fs-6">
+
+                                                    <div>日本</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:simone@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Ryan Chan ">
+                                                        14:30~16:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">10</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Peter Chen ">
+                                                        10:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">11</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:serene@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        14:00~15:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">12</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:judy@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">13</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:serene@sfrontier.biz ">
+                                                        14:00~15:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:johnny@sfrontier.biz ">
+                                                        15:00~16:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:brian@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">14</div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">15</div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">16</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:00~18:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room1">
+                                                <div class="fs-6">
+
+                                                    <div>倫敦</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:justine@sfrontier.biz ">
+                                                        14:15~14:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Ryan Chan ">
+                                                        14:00~15:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">17</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Peter Chen ">
+                                                        10:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">18</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:serene@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">19</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:judy@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">20</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:johnny@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:edgar@sfrontier.biz ">
+                                                        10:30~11:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:brian@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">21</div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">22</div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">23</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:ariel@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:00~18:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room1">
+                                                <div class="fs-6">
+
+                                                    <div>倫敦</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:justine@sfrontier.biz ">
+                                                        14:15~14:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Ryan Chan ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">24</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Peter Chen ">
+                                                        10:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">25</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room3">
+                                                <div class="fs-6">
+
+                                                    <div>日本</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:jeremy@sfrontier.biz ">
+                                                        10:30~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:serene@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        15:00~16:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="bg-primary text-white">
+                                        <div class="fs-6">26</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room3">
+                                                <div class="fs-6">
+
+                                                    <div>日本</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:sara@sfrontier.biz ">
+                                                        10:30~11:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:judy@sfrontier.biz ">
+                                                        16:00~17:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">27</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:johnny@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:edgar@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:brian@sfrontier.biz ">
+                                                        11:00~12:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">28</div>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">29</div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">30</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        10:00~11:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        17:00~18:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room1">
+                                                <div class="fs-6">
+
+                                                    <div>倫敦</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:justine@sfrontier.biz ">
+                                                        14:15~14:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item room5">
+                                                <div class="fs-6">
+
+                                                    <div>上海</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Ryan Chan ">
+                                                        14:30~16:00&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6">31</div>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item room0">
+                                                <div class="fs-6">
+
+                                                    <div>紐約</div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:Peter Chen ">
+                                                        10:00~12:00&nbsp;
+                                                    </div>
+                                                    <div class="" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="" data-bs-original-title="SF預約:joanne@sfrontier.biz ">
+                                                        11:00~12:30&nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6"></div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6"></div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6"></div>
+
+
+                                    </td>
+                                    <td width="14.285714285714%" class="">
+                                        <div class="fs-6"></div>
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </section>
+            <div>
+                <div class="login_footer">
+                    <div class="login_footer_line1"></div>
+                    <div class="login_footer_line2"></div>
+                    <div class="login_footer_txt">
+                        <div style="margin-left: 5%;font-size: 14px;line-height: 60px;color: rgba(255, 255, 255, 0.4);">
+                            Copyrights ©
+                            2022 All Rights Reserved by 成果行銷</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
