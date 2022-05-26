@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Bootstrap Select</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<div class="page-header">
+					<h1>Bootstrap Select <small>下拉框</small></h1>
+				</div>
+				<h3>基本select插件效果</h3>
+				<p>爲下拉框添加插件支持 ， <span class="label label-success">class="selectpicker"</span></p>
+				<div class="form-group">
+					<select class="selectpicker">
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+					</select>
+				</div>
+				
+				<hr>
+				<h3>單選模式示例</h3>
+				<p><span class="label label-success">class="selectpicker show-tick"</span> ， 選中項內容後添加" √ "小圖標</p>
+				<p><span class="label label-success">title="請選擇一項"</span> ， 未設置默認選項並未選擇時 ， 組件框中的提示內容</p>
+				<p><span class="label label-success">data-live-search="true"</span> ， 爲組件添加查詢功能 </p>
+				<p><span class="label label-success">data-size="5"</span> ， 設置下拉長度 </p>
+				<div class="form-group">
+					<select class="selectpicker show-tick" title="請選擇一項" data-live-search="true" data-size="5">
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+						<option>D</option>
+						<option>E</option>
+						<option>B</option>
+						<option>C</option>
+					</select>
+				</div>
+
+				<hr>
+				<h3>多選模式示例</h3>
+				<p><span class="label label-success">title="請選擇一項"</span> ， 未設置默認選項並未選擇時 ， 組件框中的提示內容</p>
+				<p><span class="label label-success">data-live-search="true"</span> ， 爲組件添加查詢功能 </p>
+				<p><span class="label label-success">data-size="5"</span> ， 設置下拉長度 </p>
+				<p><span class="label label-success">multiple</span> ， 添加可多選支持 </p>
+				<p><span class="label label-success">data-max-options="2"</span> ， 設置最多可選個數 </p>
+				<p>該屬性在設置<span class="label label-success">data-max-options="2"</span>後 ， 建議不使用<span class="label label-default">data-actions-box="true"</span> ， 該屬性是添加"選擇所有"和"全部取消選擇"按鈕</p>
+				<div class="form-group">
+					<select class="selectpicker" title="請選擇一項" data-live-search="true" data-size="5" multiple data-max-options="2">
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+						<option>D</option>
+						<option>E</option>
+						<option>B</option>
+						<option>C</option>
+					</select>
+				</div>
+				
+				<hr>
+				<h3>分組選項示例</h3>
+				<p>使用optgroup標籤將選項分爲一組， 下面介紹optgroup標籤屬性</p>
+				<p><span class="label label-success">label="分組名"</span> ， 爲分組添加名稱 </p>
+				<p><span class="label label-success">data-subtext="追加內容"</span> ， 爲分組追加名稱 </p>
+				<div class="form-group">
+					<select class="selectpicker" title="請選擇" >
+						<optgroup label="AB選項組" data-subtext="ab">
+							<option>A</option>
+						<option>B</option>
+					</optgroup>
+					<optgroup label="CD選項組" data-subtext="ab">
+						<option>C</option>
+						<option>D</option>
+						</optgroup>
+					</select>
+				</div>
+				<h3>選項標籤中屬性介紹示例1</h3>
+				<p><span class="label label-success">title="代稱"</span> ， 改變選項在組件框中顯示內容， 相當於選項的代稱</p>
+				<p><span class="label label-success">selected</span> ， 默認選中</p>
+				<p><span class="label label-default">data-icon="圖標代碼"</span>爲選項前面添加小圖標， 如果沒設置
+					<span class="label label-success">title="代稱"</span>屬性， 那麼小圖標隨選項內容一起顯示在組件框中
+				</p>
+				<p><span class="label label-success">data-subtext="提示文字"</span> ， 在選項內容後添加提示(淡灰色小2號字體)文字</p>
+				<div class="form-group">
+					<select class="selectpicker" >
+						<option title="A類型" data-icon="fa fa-file" data-subtext="a項" >A類型選項</option>
+						<option title="B類型" data-icon="fa fa-file" selected>B類型選項</option>
+						<option title="C類型" data-icon="fa fa-file">C類型選項</option>
+					</select>
+				</div>
+				<h3>選項標籤中屬性介紹示例2</h3>
+				<p><span class="label label-default">data-content="html代碼"</span> ， 使用該屬性中的代碼片段替換該選項的內容， 以及選中後在組件框中顯示的也是該html代碼</p>
+				<p>如果感覺顯示在組件代碼框中的內容不好 ， 使用<span class="label label-success">title="代稱"</span> ， 改變選項在組件框中顯示內容， 相當於選項的代稱</p>
+				<div class="form-group">
+					<select class="selectpicker" >
+						<option data-content="<span class='label label-success'>A選項</span>">A選項</option>
+						<option data-content="<span class='label label-success'>B選項</span>">B選項</option>
+						<option data-content="<span class='label label-success'>C選項</span>">C選項</option>
+					</select>
+				</div>
+				
+				<hr>
+				<h3>其他屬性介紹</h3>
+				<p><span class="label label-success">disabled</span> ， 該屬性設置在組件select標籤中爲禁用組件 ; 設置在分組標籤(optgroup)中禁選該組 ; 設置在選項標籤(option)中禁選該項。</p>
+				<p><span class="label label-default">data-divider="true"</span> ， 在選項與下一選項中間添加分割線。</p>
+				<hr>
+				<h3>Core options(核心選項)</h3>
+				<p>核心選項也就是一些屬性，重要的屬性已經在上面介紹完了</p>
+				<p>寫法：data-選項名稱:對應值，組合成屬性</p>
+				
+				<hr>
+				<h3>核心方法</h3>
+				<p>$('#selectID').selectpicker('selectAll'); // 當爲多選下拉框時 ，執行全部選中</p>
+				<p>$('#selectID').selectpicker('deselectAll'); // 當爲多選下拉框時 ，執行全部取消選中</p>
+				<p>$('#selectID').selectpicker('refresh'); // 當你刪除或者添加選項時 ，刷新代碼</p>
+				<p>$('#selectID').selectpicker('hide'); // 隱藏下拉框</p>
+				<p>$('#selectID').selectpicker('show'); // 顯示下拉框</p>
+				
+				<hr>
+				<h3>核心事件</h3>
+				<p>$('#selectID').on('show.bs.select', function (e) {}); // 當點擊下拉框時，選項項窗體即將顯示觸發</p>
+				<p>$('#selectID').on('shown.bs.select', function (e) {}); // 當點擊下拉框時，選項項窗體顯示觸發</p>
+				<p>$('#selectID').on('hide.bs.select', function (e) {}); // 當點擊下拉框時，選項項窗體即將隱藏觸發</p>
+				<p>$('#selectID').on('hidden.bs.select', function (e) {}); // 當點擊下拉框時，選項項窗體隱藏觸發</p>
+				<p>$('#selectID').on('loaded.bs.select', function (e) {}); // 當下拉框被初始化後觸發</p>
+				<p>$('#selectID').on('refreshed.bs.select', function (e) {}); // 當刷新方法(也就是執行該方法.selectpicker('refresh'))下拉框時觸發</p>
+				<p>$('#selectID').on('changed.bs.select', function (e) {}); // 當值被改變時觸發</p>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-select/1.12.4/js/i18n/defaults-zh_CN.min.js"></script>
+	
+</body>
+</html>
