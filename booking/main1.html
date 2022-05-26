@@ -13,6 +13,8 @@
             padding: 0;
             box-sizing: border-box;
             color: #555;
+            font-family: 'Lato', sans-serif;
+            font-family: Microsoft JhengHei;
         }
 
         .login_main {
@@ -51,10 +53,12 @@
         .login_header_logout:hover {
             color: #20c997;
         }
+
         /*  ==========================  footer   ==========================  */
-        .login_footer{
+        .login_footer {
             position: relative;
         }
+
         .login_footer_line1 {
             position: absolute;
             width: 100%;
@@ -103,14 +107,17 @@
             background: #b4a7d7;
             color: black;
         }
+
         .room3 {
-    background: #c4a4a4;
-    color: black;
-}
+            background: #c4a4a4;
+            color: black;
+        }
+
         .room5 {
-    background: #df6eb5;
-    color: black;
-}
+            background: #df6eb5;
+            color: black;
+        }
+
         .list-group-item:last-child {
             border-bottom-right-radius: inherit;
             border-bottom-left-radius: inherit;
@@ -221,7 +228,8 @@
             background-color: #FFFFFF;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
-        .booking_btn{
+
+        .booking_btn {
             width: 150px;
             height: 30px;
             background: #0d6efd;
@@ -235,15 +243,16 @@
             margin-top: 20px;
             cursor: pointer;
         }
-        .booking_btn:hover{
+
+        .booking_btn:hover {
             filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
             background: #0121ED;
         }
+
         .table_main {
             /* border: 1px solid blue; */
             width: 80%;
         }
-
     </style>
 </head>
 
@@ -307,8 +316,8 @@
                             </select><br>
                             開始：<input name="starttime" type="text" size="10" placeholder="ex:10:00"><br>
                             結束：<input name="endtime" type="text" size="10" placeholder="ex:10:30"><br>
-                            <button onclick="checkbooking();" class="booking_btn">BOOKING</button><img src="v2/images/loading.gif"
-                                id="imgloading1" style="width:30px; display:none;">
+                            <button onclick="checkbooking();" class="booking_btn">BOOKING</button><img
+                                src="v2/images/loading.gif" id="imgloading1" style="width:30px; display:none;">
                         </div>
                         <div style="width: 200px;"></div>
                         <table class="table text-center fs-2 table_main">
