@@ -26,9 +26,10 @@
 
         .login_main {
             margin: 0 auto;
-            background-image: url(../img/sky_bg_dark.png);
+            height: 100vh;
+            background-image: url(../img/bg2.png);
             background-repeat: no-repeat;
-            background-position: left bottom;
+            background-position: left top;
             background-size: cover;
             background-attachment: fixed;
         }
@@ -83,14 +84,16 @@
         /*  ==========================  footer   ==========================  */
         .login_footer {
             position: relative;
+            width: 100%;
         }
 
         .login_footer_txt {
             position: absolute;
-            bottom: 10px;
-            right: 30px;
+            bottom: 210px;
+            right: -168px;
+            transform: rotate(90deg);
             /* width: 100%; */
-            height: 22px;
+            /* height: 22px; */
             /* background: #000000; */
         }
 
@@ -208,23 +211,35 @@
         /* =================== 其他新增的css 套用後須留存 ======================*/
         .content_all {
             margin: 0px auto;
-            padding: 150px 0px;
             width: 95%;
+            height: 100vh;
         }
 
         .content_wrap_all {
             /* display: flex; */
+            position: fixed;
+            top: 120px;
             margin: 0px auto;
+            height: calc(100vh - 255px - 3vh);
+            width: 95%;
+            overflow: scroll;
+            /* border: 1px solid rgb(235, 233, 233); */
         }
 
         .booking_aside {
             /* border: 1px solid rgb(235, 233, 233); */
+            position: fixed;
+            bottom: 3vh;
+            transform: translateX(-50%);
+            left: 50%;
             border-radius: 10px;
             padding: 13px 15px 20px;
             display: flex;
+            justify-content: center;
             width: 80%;
             margin: 15px auto 0px;
-            background-color: #c8ecfb;
+            background-color: #cfcfda7b;
+            /* box-shadow: 5px 3px 3px rgb(207, 207, 207); */
         }
 
         .booking_btn {
@@ -249,8 +264,8 @@
         }
 
         .table_main {
-            width: 80%;
-            background-color: #ffffffb8;
+            width: 84%;
+            background-color: #cfcfda7b;;
             border-radius: 10px;
             margin: 0 auto;
         }
@@ -273,7 +288,16 @@
             padding-top: 20px;
             padding-bottom: 20px;
         }
-
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            border-color: #888;
+            border-style: solid;
+            border-width: 0;
+        }
         /* =================== 更改select 套用後須留存 ======================*/
         .booking_room {
             /* display: flex; */
@@ -1026,87 +1050,87 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="booking_aside">
-                            <div class="booking_room">
-                                <div class="booking_title">會議室：</div>
-                                <select name="room" class="dropdown">
-                                    <option>紐約</option>
-                                    <option>倫敦</option>
-                                    <option>深圳</option>
-                                    <option>日本</option>
-                                    <option>挪威</option>
-                                    <option>上海</option>
-                                </select>
-                            </div>
-                            <div class="booking_room">
-                                <div class="booking_title">預約人：</div>
-                                <select name="org" class="dropdown1">
-                                    <option value="1">追聚行銷</option>
-                                    <option value="2">法律顧問 </option>
-                                </select>
-                            </div>
-                            <div class="booking_room booking_date">
-                                <div class="booking_title">日期：</div>
-                                <select name="day" class="dropdown2">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                            </div>
-                            <div class="booking_room">
-                                <div class="booking_title">開始：</div>
-                                <input name="starttime" type="text" size="10" placeholder=" ex:10:00"
-                                    style="border:1px solid;border-radius: 7px; width: 115px; height: 40px;">
-                            </div>
-                            <div class="booking_room">
-                                <div class="booking_title">結束：</div>
-                                <input name="endtime" type="text" size="10" placeholder=" ex:10:30"
-                                    style="border:1px solid;border-radius: 7px; width: 115px;height: 40px;">
-                            </div>
-                            <button onclick="checkbooking();" class="booking_btn">BOOKING</button>
-                            <!-- <img src="v2/images/loading.gif" id="imgloading1" style="width:30px; display:none;"> -->
+                    </div>
+                    <div class="booking_aside">
+                        <div class="booking_room">
+                            <div class="booking_title">會議室：</div>
+                            <select name="room" class="dropdown">
+                                <option>紐約</option>
+                                <option>倫敦</option>
+                                <option>深圳</option>
+                                <option>日本</option>
+                                <option>挪威</option>
+                                <option>上海</option>
+                            </select>
                         </div>
-
+                        <div class="booking_room">
+                            <div class="booking_title">預約人：</div>
+                            <select name="org" class="dropdown1">
+                                <option value="1">追聚行銷</option>
+                                <option value="2">法律顧問 </option>
+                            </select>
+                        </div>
+                        <div class="booking_room booking_date">
+                            <div class="booking_title">日期：</div>
+                            <select name="day" class="dropdown2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="booking_room">
+                            <div class="booking_title">開始：</div>
+                            <input name="starttime" type="text" size="10" placeholder=" ex:10:00"
+                                style="border:1px solid;border-radius: 7px; width: 115px; height: 40px;">
+                        </div>
+                        <div class="booking_room">
+                            <div class="booking_title">結束：</div>
+                            <input name="endtime" type="text" size="10" placeholder=" ex:10:30"
+                                style="border:1px solid;border-radius: 7px; width: 115px;height: 40px;">
+                        </div>
+                        <button onclick="checkbooking();" class="booking_btn">BOOKING</button>
+                        <!-- <img src="v2/images/loading.gif" id="imgloading1" style="width:30px; display:none;"> -->
                     </div>
                 </div>
             </section>
-            <div>
-                <div class="login_footer">
-                    <!-- <div class="login_footer_line1"></div>
-                    <div class="login_footer_line2"></div> -->
-                    <div class="login_footer_txt">
-                        <div>
-                            Copyrights ©
-                            2022 All Rights Reserved by 成果行銷</div>
-                    </div>
+
+        </div>
+        <div>
+            <div class="login_footer">
+                <!-- <div class="login_footer_line1"></div>
+                <div class="login_footer_line2"></div> -->
+                <div class="login_footer_txt">
+                    <div>
+                        Copyrights ©
+                        2022 All Rights Reserved by 成果行銷</div>
                 </div>
             </div>
         </div>
