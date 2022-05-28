@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    </script>
     <script src="https://formstone.it/demo/js/modernizr.js?v=1.4.21"></script>
     <link rel="stylesheet" href="https://formstone.it/demo/css/site.css?v=1.4.21">
     <script src="https://formstone.it/demo/js/site.js?v=1.4.21"></script>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <title>成果行銷 | 預約會議室</title>
     <style>
         body {
@@ -19,6 +21,16 @@
             color: #555;
             font-family: 'Lato', sans-serif;
             font-family: Microsoft JhengHei;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
         }
 
         ::-webkit-scrollbar {
@@ -32,6 +44,19 @@
             background-position: left bottom;
             background-size: cover;
             background-attachment: fixed;
+        }
+
+        .login_main_bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .login_main_bg img {
+            width: 100vw;
         }
 
         .login_header {
@@ -274,19 +299,23 @@
 
         thead tr th {
             border-color: #888;
-            
+
         }
-        th{
+
+        th {
             font-size: 26px;
         }
-        .table> tbody>tr:last-child>*{
+
+        .table>tbody>tr:last-child>* {
             border-bottom-width: 0px;
             padding-bottom: 30px;
         }
-        .thead_tr th{
+
+        .thead_tr th {
             padding-top: 20px;
             padding-bottom: 20px;
         }
+
         /* =================== 更改select 套用後須留存 ======================*/
         .booking_room {
             display: flex;
@@ -325,13 +354,22 @@
         .no-touchevents .fs-dropdown.fs-light .fs-dropdown-selected:hover {
             background-color: #8dc8ff;
         }
-        .booking_date .fs-dropdown{
+
+        .booking_date .fs-dropdown {
             width: 131px;
         }
     </style>
+    <script>$(window).load(function () {
+            //適當延遲隱藏，提高loading效果  
+            // $('#loading_all').delay(1000).hide(0);  
+            $('#loading').hide(0);
+        });  </script>
 </head>
 
 <body>
+    <div id="loading">
+    </div>
+    <pre name="code" class="css"></pre>
     <div>
         <div class="login_main">
             <div class="login_header_relative">
