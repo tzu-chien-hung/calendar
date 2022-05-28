@@ -15,11 +15,22 @@
             font-family: Microsoft JhengHei;
         }
 
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+
         .login_main {
             width: 100%;
             height: 100vh;
             display: flex;
         }
+
         /*  ==========================  aside   ==========================  */
         .login_aside {
             position: absolute;
@@ -30,6 +41,7 @@
             background-size: cover;
             background-position: right;
         }
+
         .login_aside_txt {
             position: absolute;
             bottom: 0;
@@ -37,7 +49,7 @@
             height: 40px;
         }
 
-        .login_header_title_div{
+        .login_header_title_div {
             height: 100%;
             display: flex;
             justify-content: center;
@@ -55,6 +67,7 @@
             padding-bottom: 50px;
             padding-right: 15%;
         }
+
         /*  ==========================  form   ==========================  */
         .login_form_all {
             position: absolute;
@@ -67,12 +80,14 @@
             background-position: left;
             z-index: 1;
         }
-        .login_form_div{
+
+        .login_form_div {
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .login_form_content {
             position: absolute;
             right: 0;
@@ -133,7 +148,8 @@
             margin-top: 20px;
             cursor: pointer;
         }
-        .btn_login:hover{
+
+        .btn_login:hover {
             filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
             background: #0121ED;
         }
@@ -174,9 +190,16 @@
             padding-top: 1.625rem;
         }
     </style>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('loading').style = 'display : none';
+        });
+    </script>
 </head>
 
 <body>
+    <div id="loading">
+    </div>
     <div>
         <div class="login_main">
             <div class="login_aside">

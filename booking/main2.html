@@ -11,7 +11,7 @@
     <script src="https://formstone.it/demo/js/modernizr.js?v=1.4.21"></script>
     <link rel="stylesheet" href="https://formstone.it/demo/css/site.css?v=1.4.21">
     <script src="https://formstone.it/demo/js/site.js?v=1.4.21"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script> -->ㄉ
     <title>成果行銷 | 預約會議室</title>
     <style>
         body {
@@ -359,17 +359,25 @@
             width: 131px;
         }
     </style>
-    <script>$(window).load(function () {
-            //適當延遲隱藏，提高loading效果  
-            // $('#loading_all').delay(1000).hide(0);  
-            $('#loading').hide(0);
-        });  </script>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('loading').style = 'display : none';
+            $(".dropdown").dropdown({
+                label: "紐約"
+            });
+            $(".dropdown1").dropdown({
+                label: "追劇行銷"
+            });
+            $(".dropdown2").dropdown({
+                label: "1"
+            });
+        });
+    </script>
 </head>
 
 <body>
     <div id="loading">
     </div>
-    <pre name="code" class="css"></pre>
     <div>
         <div class="login_main">
             <div class="login_header_relative">
@@ -1162,17 +1170,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(".dropdown").dropdown({
-            label: "紐約"
-        });
-        $(".dropdown1").dropdown({
-            label: "追劇行銷"
-        });
-        $(".dropdown2").dropdown({
-            label: "1"
-        });
-    </script>
 </body>
 
 </html>
